@@ -16,8 +16,6 @@ class PostController extends Controller
         $post = Post::with('category')->orderBy('id_post','DESC')->get();
         return view('admincp.post.index')->with(compact('post'));
     }
-
-
     public function create()
     {
         $category = Category::orderBy('id_category','DESC')->get();
@@ -32,13 +30,15 @@ class PostController extends Controller
             'summary' => 'required',
             'content' => 'required',
             'image' => 'required',
+            'file'=>'required',
             'id_category' => 'required',
             'status' => 'required'
         ], [
             'title.required' => 'Yêu cầu tên danh mục',
             'summary.required' => 'Yêu cầu tóm tắt',
             'content.required' => 'Yêu cầu nội dung',
-            'image.required' => 'Yêu cầu hình ảnh bài viết'
+            'image.required' => 'Yêu cầu hình ảnh bài viết',
+            'file.required' => 'Yêu cầu file sách'
         ]);
        
         $post = new Post();
@@ -48,6 +48,12 @@ class PostController extends Controller
         $name = time().'_'.$image->getClientOriginalName();
         Storage::disk('public')->put($name,File::get($image));
 
+        $file = $data['file'];
+        $extension = $file->getClientOriginalExtension();
+        $name_file = time().'_'.$file->getClientOriginalName();
+        Storage::disk('public')->put($name_file,File::get($file));
+
+        $post->book_post = $name_file;
         $post->image_post = $name;
         $post->title_post = $data['title'];
         $post->summary_post = $data['summary'];
@@ -55,24 +61,21 @@ class PostController extends Controller
         $post->id_category = $data['id_category'];
         $post->status_post = $data['status'];
         $post->save();
-        return back()->with('success','Thêm bài viết thành công');
+        return back()->with('success','Thêm sách thành công');
     }
 
 
     public function show($id)
     {
-
         $category = Category::orderBy('id_category','DESC')->get();
         $post = Post::find($id);
         return view('admincp.post.show')->with(compact('post','category'));
     }
 
-
     public function edit($id)
     {
         //
     }
-
 
     public function update(Request $request, $id)
     {
@@ -100,8 +103,7 @@ class PostController extends Controller
                 $name = time().'_'.$image->getClientOriginalName();
                 Storage::disk('public')->put($name,File::get($image));
                 $post->image_post = $name;
-           
-            
+        
         }
         $post->title_post = $data['title'];
         $post->summary_post = $data['summary'];
@@ -112,14 +114,17 @@ class PostController extends Controller
         return redirect('post')->with('success','Cập nhật bài viết thành công');
     }
 
-
     public function destroy($id)
     {
         $post = Post::find($id);
         if($post->image_post){
             unlink('public/uploads/'.$post->image_post);
         }
+        if($post->book_post){
+            unlink('public/uploads/'.$post->book_post);
+        }
         $post->delete();
+        
         return back()->with('success','Xoá bài viết thành công');
     }
 }

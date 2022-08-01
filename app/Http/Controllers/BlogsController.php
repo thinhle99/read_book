@@ -13,7 +13,7 @@ class BlogsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function trangchu(){
-        $post = Post::orderBy('id_post','DESC')->paginate(5);
+        $post = Post::orderBy('id_post','DESC')->paginate(12);
         $category = Category::all();
         return view('pages.home')->with(compact('category','post'));
     }
@@ -21,7 +21,8 @@ class BlogsController extends Controller
 
         $get_post = Post::find($id);
         $category = Category::all();
-        $relate = Post::where('id_category',$get_post->id_category)->whereNotIn('id_post',[$id])->get();
+
+        $relate = Post::where('id_category',$get_post->id_category)->whereNotIn('id_post',[$id])->paginate(12);
         return view('pages.details')->with(compact('category','get_post','relate'));
     }
 
@@ -29,6 +30,8 @@ class BlogsController extends Controller
         $tukhoa = $_GET['tukhoa'];
 
         $get_post = Post::where('title_post','LIKE','%'.$tukhoa.'%')->Orwhere('summary_post','LIKE','%'.$tukhoa.'%')->get();
+        // $get_post = Post::where('title_post','LIKE','%'.$tukhoa.'%')->Orwhere('summary_post','LIKE','%'.$tukhoa.'%')->get();
+
         // ->Orwhere('summary_post','LIKE','%'.$tukhoa.'%')->Orwhere('content_post','LIKE','%'.$tukhoa.'%')
 
         $category = Category::all();
@@ -38,7 +41,7 @@ class BlogsController extends Controller
     public function show($id)
     {
         $category = Category::all();
-        $get_category = Post::with('category')->where('id_category',$id)->paginate(3);
+        $get_category = Post::with('category')->where('id_category',$id)->paginate(12);
         return view('pages.blogs')->with(compact('get_category','category'));
     }
 

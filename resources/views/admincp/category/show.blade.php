@@ -7,7 +7,7 @@
         <div class="col-md-8">
             <div class="card">
 
-                <div class="card-header">Cập nhật danh mục bài viết</div>
+                <div class="card-header">Cập nhật danh mục</div>
 
                 <div class="card-body">
                     @if(Session::has('success'))

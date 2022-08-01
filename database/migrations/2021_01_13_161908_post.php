@@ -17,6 +17,7 @@ class Post extends Migration
             $table->bigIncrements('id_post');
             $table->string('title_post');
             $table->string('image_post',100);
+            $table->string('book_post',100);
             $table->longText('content_post');
             $table->text('summary_post');
             $table->integer('id_category')->nullable();

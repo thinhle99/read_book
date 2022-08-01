@@ -1,0 +1,220 @@
+.content-details {
+  width: 85%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+
+.lienquan {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 750;
+  padding-top: 10px;
+  padding-bottom: 70px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+  /* https://www.cssmatic.com/box-shadow */
+  /* box-shadow: 4px 4px 5px 0px rgba(217,213,217,0.65); */
+  box-shadow: 7px 8px 7px 0px rgba(224, 224, 224, 1);
+  height: 350px;
+  /* width: 235px; */
+  margin: 0;
+  border-radius: 15px;
+  box-shadow: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+.card-image {
+  height: 280px;
+  width: 100%;
+  justify-items: center;
+  object-fit: cover;
+}
+
+.card-image:hover {
+  opacity: 0.75;
+}
+
+.card-top {
+  padding: 10px;
+}
+
+.card-content {
+  /* height: calc(100%-200px); */
+  border-top: 2px solid #222;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 550;
+  color: black;
+  margin-bottom: 20px;
+  word-break: break-all;
+  /* text-truncate */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  margin-bottom: 5px;
+}
+
+.card-title:hover {
+  font-size: 16px;
+  font-weight: 600;
+  color: #005550;
+}
+
+.card a:hover {
+  /* text-decoration: none; */
+  text-decoration-color: #005550;
+
+}
+
+
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* display: flex; */
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal.open {
+  display: flex;
+}
+
+.modal-container {
+  background-color: #005550;
+  width: 1000px;
+  min-width: 80%;
+  max-width: calc(100% - 32px);
+  height: 100%;
+  animation: btnshowBooks ease .5s;
+}
+
+.modal-close {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  float: right;
+  padding: 5px 10px 5px 10px;
+  margin: 0;
+  cursor: pointer;
+  /* opacity: 0.5; */
+}
+
+.modal-close:hover {
+  background-color: red;
+  opacity: 1;
+}
+
+#embeddedView {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+#loader {
+  /* background-image: url("https://assets.codepen.io/4479906/loader.gif"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  display: none;
+}
+
+@keyframes btnshowBooks {
+  from {
+    transform: translateY(-100vh);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Category */
+#category-box {
+  display: flex;
+  overflow: hidden;
+}
+
+#category-box-img {
+  width: 40%;
+}
+
+#category-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#category-content {
+  flex: 1;
+  padding: 20px 10px 0 20px;
+}
+
+#title {
+  font-size: 20px;
+  font-weight: 650;
+}
+
+#author {
+  font-size: 15px;
+  font-weight: bold;
+  color: #0186c9;
+}
+
+#date {
+  margin-left: 10px;
+  font-size: 15px;
+  color: #819196;
+}
+
+#size {
+  font-size: 15px;
+  color: #819196;
+}
+
+#description {
+  margin-top: 20px;
+  font-weight: lighter;
+}
+
+/* Responsive */
+.list-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 16px;
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+}
+
+@media screen and (max-width: 1000px) {
+  .list-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .list-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

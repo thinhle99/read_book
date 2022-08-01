@@ -23,3 +23,8 @@ Route::resource('post','PostController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Route::get('/21031999', function () {
+//     return view('welcome');
+// });

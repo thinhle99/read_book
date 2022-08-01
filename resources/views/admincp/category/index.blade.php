@@ -22,7 +22,7 @@
                             @endphp
                         </div>
                     @endif
-                <div class="card-header">Liệt kê danh mục bài viết</div>
+                <div class="card-header">Liệt kê danh mục</div>
 
                 <div class="card-body">
                     @if (session('status'))

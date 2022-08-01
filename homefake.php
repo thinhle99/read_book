@@ -11,10 +11,8 @@
 
       <!-- Blog Entries Column -->
       <div class="col-md-8">
+        <h1 class="my-4"> Books to read online for free</h1>
 
-        <h1 class="my-4">
-          Blogs Du lịch Việt Nam
-        </h1>
         @foreach($post as $key => $p)
         <!-- Blog Post -->
         <div class="card mb-4">
@@ -28,7 +26,6 @@
             {{$p->created_at}} by Admin
           </div>
         </div>
-
         @endforeach
 
         <!-- Pagination -->
@@ -47,7 +44,7 @@
           <div class="card-body">
           	<form method="GET" class="form-inline my-2 my-lg-0" action="{{url('tim-kiem')}}">
             <div class="input-group">
-              <input type="text" class="form-control" name="tukhoa" placeholder="Tìm kiếm bài blogs...">
+              <input type="text" class="form-control" name="tukhoa" placeholder="Tìm kiếm sách ...">
               <span class="input-group-append">
                 <button class="btn btn-secondary" type="submit">Tìm blogs</button>
               </span>

@@ -34,9 +34,9 @@
                       <thead>
                         <tr>
                           <th scope="col">#</th>
-                          <th scope="col">Tên bài viết</th>
+                          <th scope="col">Tên sách</th>
                           <th scope="col">Hình ảnh</th>
-                          <th scope="col">Danh mục bài viết</th>
+                          <th scope="col">Danh mục</th>
                           <th scope="col">Tóm tắt</th>
                           <th scope="col">Tình trạng</th>
                           <th scope="col">Quản lý</th>
