@@ -96,8 +96,8 @@
 
 	//hiển thị book
 	// const clientId = "bc1ef43ec37b4c659e966a262c0b55de";
-	const clientId = "7dd7645a27dc4b42a2b168769147156a";
-	// const clientId = "6fcdb1fa3a01478e8b3bc95dea20454d";
+	// const clientId = "7dd7645a27dc4b42a2b168769147156a";
+	const clientId = "09e87ef60dac44d7ac00d32e18f83752";
 
 	const viewerOptions = {
 		embedMode: "FULL_WINDOW",

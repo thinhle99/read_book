@@ -24,7 +24,6 @@ class CategoryController extends Controller
         return view('admincp.category.create');
     }
 
-
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -46,7 +45,6 @@ class CategoryController extends Controller
     public function show($id)
     {
         $category = Category::find($id);
-       
         return view('admincp.category.show')->with(compact('category'));
     }
 

@@ -73,13 +73,13 @@
                 @endforeach
               </select>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="exampleFormControlSelect2">Kích hoạt</label>
               <select class="form-control" name="status">
                 <option value="1">Kích hoạt</option>
                 <option value="0">Không</option>
               </select>
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-primary">Thêm bài viết</button>
           </form>
